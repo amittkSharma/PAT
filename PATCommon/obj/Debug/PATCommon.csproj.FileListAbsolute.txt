@@ -1,0 +1,5 @@
+F:\Personal_Workspace\Assesments\PAT\PAT\bin\Debug\PATCommon.dll
+F:\Personal_Workspace\Assesments\PAT\PAT\bin\Debug\PATCommon.pdb
+F:\Personal_Workspace\Assesments\PAT\PATCommon\obj\Debug\PATCommon.csproj.CoreCompileInputs.cache
+F:\Personal_Workspace\Assesments\PAT\PATCommon\obj\Debug\PATCommon.dll
+F:\Personal_Workspace\Assesments\PAT\PATCommon\obj\Debug\PATCommon.pdb

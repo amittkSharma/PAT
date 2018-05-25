@@ -1,0 +1,55 @@
+﻿<UserControl x:Class="PATFileUpload.Views.DisplayComputationsView"
+						 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+						 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+						 xmlns:local="clr-namespace:PATFileUpload" >
+	<UserControl.Resources>
+		<local:SingleUnitToVolumeUnitConverter x:Key="SingleUnitToVolumeUnitConverter" />
+	</UserControl.Resources>
+	<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="100" />
+				<ColumnDefinition Width="*" />	
+		</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="50" />
+			  <RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+
+		<Label Grid.Row="0" Grid.Column="0" Content="Computations" />
+
+		<ListBox Name="Configuration" 
+						 Grid.Row="0" Grid.Column="1" Grid.RowSpan="2"
+						 HorizontalContentAlignment="Stretch" 
+						 ItemsSource="{Binding Path=Computations,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="50" />
+							<RowDefinition Height="*" />
+						</Grid.RowDefinitions>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="100" />
+							<ColumnDefinition Width="*" />
+							<ColumnDefinition Width="5" />
+							<ColumnDefinition Width="100" />
+						</Grid.ColumnDefinitions>
+						<Label Content="{Binding ComputationName}" Grid.Row="0"  />
+						<Label Content="Volume" Grid.Row="1" Grid.Column="0" />
+						<TextBox
+							Grid.Row="1"
+							Grid.Column="1"
+							Text="{Binding Path=Volume, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+						<Label
+							Grid.Row="2"
+							Grid.Column="3"
+							Content="{Binding Path=UnitName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SingleUnitToVolumeUnitConverter}}" />
+					</Grid>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+
+
+	</Grid>
+</UserControl>

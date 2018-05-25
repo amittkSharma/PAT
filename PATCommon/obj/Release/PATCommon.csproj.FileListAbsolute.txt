@@ -1,0 +1,6 @@
+F:\Personal_Workspace\Assesments\PAT\PATCommon\bin\Release\PATCommon.dll
+F:\Personal_Workspace\Assesments\PAT\PATCommon\bin\Release\PATCommon.pdb
+F:\Personal_Workspace\Assesments\PAT\PATCommon\obj\Release\PATCommon.csprojAssemblyReference.cache
+F:\Personal_Workspace\Assesments\PAT\PATCommon\obj\Release\PATCommon.csproj.CoreCompileInputs.cache
+F:\Personal_Workspace\Assesments\PAT\PATCommon\obj\Release\PATCommon.dll
+F:\Personal_Workspace\Assesments\PAT\PATCommon\obj\Release\PATCommon.pdb

@@ -1,0 +1,85 @@
+﻿<Window x:Class="PAT.Shell"
+				xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+				xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+				xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+				xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+				xmlns:cal="http://prismlibrary.com/"
+				mc:Ignorable="d"
+				Title="PAT"
+				WindowStartupLocation="CenterScreen"
+				WindowState="Maximized"
+				WindowStyle="SingleBorderWindow">
+		<Grid>
+		<TabControl>
+			<TabItem Header="Oil/Gas Volume Finder">
+				<Grid ShowGridLines="True">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="30"></RowDefinition>
+						<RowDefinition Height="*"></RowDefinition>
+						<RowDefinition Height="30"></RowDefinition>
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="30"></ColumnDefinition>
+						<ColumnDefinition Width="*"></ColumnDefinition>
+						<ColumnDefinition Width="30"></ColumnDefinition>
+					</Grid.ColumnDefinitions>
+
+
+					<Grid Margin="10"
+								Grid.Column="1" 
+							  Grid.Row="1">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="70"></RowDefinition>
+							<RowDefinition Height="*"></RowDefinition>
+						</Grid.RowDefinitions>
+						<ItemsControl Name="fileUpload"
+													Grid.Row="0"
+													cal:RegionManager.RegionName="UploadRegion" />
+						<ItemsControl Name="configuration"
+													Grid.Row="1"
+													cal:RegionManager.RegionName="ConfigurationRegion" />
+					</Grid>
+					
+				</Grid>
+			</TabItem>
+			<TabItem Header="ReadMe">
+				<Grid ShowGridLines="True">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="30"></RowDefinition>
+						<RowDefinition Height="*"></RowDefinition>
+						<RowDefinition Height="30"></RowDefinition>
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="30"></ColumnDefinition>
+						<ColumnDefinition Width="*"></ColumnDefinition>
+						<ColumnDefinition Width="30"></ColumnDefinition>
+					</Grid.ColumnDefinitions>
+
+					<RichTextBox Margin="10" 	
+											 Grid.Row="1" 
+											 Grid.Column="1"  IsReadOnly="True">
+						<FlowDocument>
+							<Paragraph FontSize="36">Demo Guide</Paragraph>
+							<Paragraph FontStyle="Italic" TextAlignment="Left" FontSize="14" Foreground="Gray">
+								For Demo purposes all the data points from the assessment document are converetd into Feet. 
+								The various dimensions like depth factors, height and width are hard coded for demo purposes only.
+								Some important points of Demo app are:
+									- Browsing of the excel sheet (Demo app gives the capability of selecting any excel file) 
+									- Units of measurements (feet and meters) can be selected.
+									- Application is easily extensible as it is build on PRISM principle.
+									- Units can be extended easily as Enum is used for the same. 
+									- View models are used for computations, repository is used to hold the default dimensions and also the data points from the excel sheet.
+							</Paragraph>
+							<Paragraph FontStyle="Italic" TextAlignment="Left" FontSize="14" Foreground="Gray">
+								Technical Stack: VS 2017
+							</Paragraph>
+							<Paragraph FontStyle="Italic" TextAlignment="Left" FontSize="14" Foreground="Gray">
+								Installations: Open the solution in VS 2017 and build it. Or Executable is present (..\PAT\PAT\bin\Debug\PAT.exe)
+							</Paragraph>
+						</FlowDocument>
+					</RichTextBox>
+				</Grid>
+			</TabItem>
+		</TabControl>
+	</Grid>
+</Window>

@@ -1,0 +1,74 @@
+﻿<UserControl x:Class="PATFileUpload.Views.HorizonConfigurationsView"
+						 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+						 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+						 xmlns:cal="http://prismlibrary.com/">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="50" />
+			<RowDefinition Height="10" />
+			<RowDefinition Height="*" />
+			<RowDefinition Height="10" />
+			<RowDefinition Height="50" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="Auto"></ColumnDefinition>
+			<ColumnDefinition Width="*"></ColumnDefinition>
+			<ColumnDefinition Width="*"></ColumnDefinition>
+		</Grid.ColumnDefinitions>
+		<Label Grid.Row="0" Grid.Column="0" Content="Select Mesuring Unit:" />
+		<ComboBox ItemsSource="{Binding AllMeasuringUnits}"
+							SelectedItem="{Binding SelectedMeasuirngUnit, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+							Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2"/>
+		<Label Content="Horizon Configurations: (in Feet for Demo) " Grid.Row="2" Grid.Column="0" />
+		<ListBox Name="Configuration" 
+						 Grid.Row="2" Grid.Column="1"
+						 HorizontalContentAlignment="Stretch" 
+						 ItemsSource="{Binding Path=HorizonConfirgurations,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="40" />
+							<RowDefinition Height="*" />
+						</Grid.RowDefinitions>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="100" />
+							<ColumnDefinition Width="70" />
+							<ColumnDefinition Width="5" />
+							<ColumnDefinition Width="70" />
+							<ColumnDefinition Width="70" />
+							<ColumnDefinition Width="5" />
+							<ColumnDefinition Width="100" />
+							<ColumnDefinition Width="70" />
+						</Grid.ColumnDefinitions>
+						<Label Content="{Binding HorizonName}" Grid.Row="0"  />
+						<Label Content="Length" Grid.Row="1" Grid.Column="0" />
+						<Label
+							Grid.Row="1"
+							Grid.Column="1"
+							Content="{Binding Path=CellLength, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+						<Label Content="Width" Grid.Row="2" Grid.Column="3" />
+						<Label
+							Grid.Row="1"
+							Grid.Column="4"
+							Content="{Binding Path=CellWidth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+						<Label Content="Depth Factor" Grid.Row="1" Grid.Column="6" />
+						<Label
+							Grid.Row="1"
+							Grid.Column="7"
+							Content="{Binding Path=DepthFactor, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+					</Grid>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+
+		<Button Content="Compute" Grid.Row="4" Grid.Column="1" Command="{Binding ComputeCommand}" Width="200" HorizontalAlignment="Right" />
+		<ItemsControl Name="computation"
+									Grid.Row="2"
+									Grid.Column="2"
+									cal:RegionManager.RegionName="CRegion" />
+	</Grid>
+</UserControl>
